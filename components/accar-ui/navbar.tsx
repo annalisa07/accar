@@ -1,34 +1,17 @@
 import Link from "next/link";
 import React from "react";
 import Logo from "./logo";
+import { config } from "@/website.config";
 
 const Navbar = () => {
-	const routes = [
-		{
-			name: "home",
-			url: "/",
-		},
-		{
-			name: "about us",
-			url: "/about-us",
-		},
-		{
-			name: "auto",
-			url: "/cars",
-		},
-		{
-			name: "contacts",
-			url: "/contacts",
-		},
-	];
 	return (
 		<div className="flex justify-between items-center w-full mx-10">
 			<Logo />
 			<ul className="flex gap-8 py-4">
-				{routes.map((m, i) => (
-					<Link href={m.url}>
-						<li key={m.url + i}>{m.name}</li>
-					</Link>
+				{config.navbar.routes.map((m, i) => (
+					<li key={m.url + i}>
+						<Link href={m.url}>{m.name}</Link>
+					</li>
 				))}
 			</ul>
 		</div>
